@@ -1,12 +1,12 @@
-<ion-header >
-  <ion-toolbar color="primary">
-    <ion-button routerLink="/inicio" color="warning">Volver
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="dismiss()">Volver
     </ion-button>
   </ion-toolbar>
 
 </ion-header>
 
-<ion-content class="ion-padding" color="light">
+<ion-content class="ion-padding">
 <div class="tittle">
     <h4>Iniciar Sesion</h4>
     <p>Docente</p>
@@ -20,11 +20,11 @@
 </div>
 
 <div class="ion-margin-top ion-text-center">
-  <ion-button expand="block" routerLink="/estudiante" color="secondary">Iniciar Sesion</ion-button>
+  <ion-button expand="block" (click)="docente()" color="secondary">Iniciar Sesion</ion-button>
 </div>
 
 <div class="ion-margin-top ion-text-center">
-  <ion-button  expand="block" routerLink="/rescontra" color="secondary">Restablecer Contraseña</ion-button>
+  <ion-button  expand="block" (click)="rescontra()" color="secondary">Restablecer Contraseña</ion-button>
 </div>
 
 </ion-content>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
+import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
+import { RegistroserviceService, Usuario } from 'src/app/service/registroservice.service';
 
 @Component({
   selector: 'app-estudiante',
@@ -7,14 +9,29 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./estudiante.page.scss'],
 })
 export class EstudiantePage implements OnInit {
+  usuario: Usuario;
 
-  constructor(private menuController: MenuController) { }
+  constructor(private registroService: RegistroserviceService,
+    private barcodeScanner: BarcodeScanner,private menuController: MenuController, private navController: NavController) { }
 
-  ngOnInit() {
-  }
-  
-  mostrarMenu(){
+    async ngOnInit() {
+      this.usuario=await this.registroService.usuarioNombre();
+    }
+
+  mostrarMenu() {
     this.menuController.open('first');
+  }
+  logout() {
+    localStorage.clear();
+    this.navController.navigateRoot('login')
+  }
+  scanner() {
+    this.barcodeScanner.scan().then(barcodeData => {
+      console.log('Barcode data', barcodeData);
+     }).catch(err => {
+         console.log('Error', err);
+     });
+
   }
 
 }

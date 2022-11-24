@@ -14,11 +14,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto:wght@500&display=swap" rel="stylesheet">
   <div class="tittle">
     <h4>Sesion Estudiante</h4>
+    <h1>Bienvenido {{usuario?.nomUsuario}}</h1>
   </div>
 
   
   <div class="ion-margin-top ion-text-center">
-    <ion-button expand="block" routerLink="/camara" color="warning">Activar Camara</ion-button>
+    <ion-button expand="block" (click)="scanner()" color="warning">Activar Camara</ion-button>
+    <ion-button  expand="block"  color="secondary" (click)="logout()">Cerrar Sesión</ion-button>
   </div>
 
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-informacion',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformacionPage implements OnInit {
 
-  constructor() { }
+  constructor(private navController: NavController) { }
 
   ngOnInit() {
+  }
+
+  volver(){
+    if(localStorage.getItem('docente')){
+      this.navController.navigateRoot('docente')
+
+      
+    }else{
+      this.navController.navigateRoot('estudiante')
+    }
+
   }
 
 }
