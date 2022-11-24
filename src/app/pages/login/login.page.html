@@ -21,7 +21,7 @@
     <ion-label color="secondary" position="floating">Correo:</ion-label>
     <ion-input formControlName="correo" pattern="^([a-zA-Z0-9-.]+)@([a-zA-Z0-9-.]+).([a-zA-Z]{2,5})$"required type="email"></ion-input>
   </ion-item>
-  <span *ngIf="f['correo'].getError('required')!=null">Vacio.</span>
+  <span *ngIf="f['correo'].getError('required')!=null">Ingrese Correo</span>
 
 
 
@@ -30,7 +30,7 @@
     <ion-input formControlName="password" type="password"></ion-input>
   </ion-item>
   
-  <span *ngIf="f['password'].getError('required')!=null">Vacio.</span>
+  <span *ngIf="f['password'].getError('required')!=null">Ingrese contraseña</span>
 
   <span *ngIf="f['password'].getError('minlength')!=null">Minimo 1 caracter.</span>
 
